@@ -7,7 +7,7 @@ namespace live.asp.net
     {
         // Entry point for the application.
         public static void Main(string[] args)
-        {
+        { 
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
