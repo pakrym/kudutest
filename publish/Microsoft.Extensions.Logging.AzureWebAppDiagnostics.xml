@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Extensions.Logging.AzureWebAppDiagnostics</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnosticsFactoryExtensions">
+            <summary>
+            Extension methods for <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnosticsFactoryExtensions.AddAzureWebAppDiagnostics(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings)">
+            <summary>
+            Adds an Azure Web Apps diagnostics logger.
+            </summary>
+            <param name="factory">The extension method argument</param>
+            <param name="settings"></param>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider">
+            <summary>
+            Logger provider for Azure WebApp.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider.#ctor(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppContext,Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings)">
+            <summary>
+            Creates a new instance of the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider.CreateLogger(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsLoggerProvider.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings.FileSizeLimit">
+            <summary>
+            A strictly positive value representing the maximum log size in bytes. Once the log is full, no more message will be appended
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings.RetainedFileCountLimit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings.OutputTemplate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings.BlobBatchSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.AzureWebAppDiagnosticsSettings.BlobCommitPeriod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.AzureBlobSink">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.AzureBlobSink.#ctor(System.String,Serilog.Formatting.ITextFormatter,System.Int32,System.TimeSpan)">
+             <summary>
+            
+             </summary>
+            <param name="uri"></param>
+            <param name="formatter"></param>
+             <param name="batchSizeLimit"></param>
+             <param name="period"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.AzureBlobSink.EmitBatchAsync(System.Collections.Generic.IEnumerable{Serilog.Events.LogEvent})">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink">
+            <summary>
+            A background sink for Serilog.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink.DefaultLogMessagesQueueSize">
+            <summary>
+            The default queue size.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink.#ctor(Serilog.Core.ILogEventSink,System.Nullable{System.Int32})">
+            <summary>
+            Creates a new instance of the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink"/> class.
+            </summary>
+            <param name="innerSink">The inner sink which does the actual logging</param>
+            <param name="maxQueueSize">The maximum size of the background queue</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink.Emit(Serilog.Events.LogEvent)">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BackgroundSink.Dispose">
+            <summary>
+            Disposes this object instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BlobLoggerProvider">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BlobLoggerProvider.#ctor(System.String,System.Int32,System.TimeSpan)">
+            <summary>
+            
+            </summary>
+            <param name="outputTemplate"></param>
+            <param name="batchSize"></param>
+            <param name="period"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.BlobLoggerProvider.ConfigureLogger(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.FileLoggerProvider">
+            <summary>
+            A file logger for Azure WebApp.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.FileLoggerProvider.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.FileLoggerProvider"/> class.
+            </summary>
+            <param name="fileSizeLimit">A strictly positive value representing the maximum log size in megabytes. Once the log is full, no more message will be appended</param>
+            <param name="retainedFileCountLimit"></param>
+            <param name="outputTemplate"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.FileLoggerProvider.ConfigureLogger(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppContext">
+            <summary>
+            Represents an Azure WebApp context
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppContext.HomeFolder">
+            <summary>
+            Gets the path to the home folder if running in Azure WebApp
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppContext.IsRunningInAzureWebApp">
+            <summary>
+            Gets a value indicating whether or new we're in an Azure WebApp
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader">
+            <summary>
+            The contract for a WebApp configuration reader.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader.OnConfigurationChanged">
+            <summary>
+            Triggers when the configuration has changed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader.Current">
+            <summary>
+            The current value of the configuration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.SerilogLoggerProvider">
+            <summary>
+            Represents a Serilog logger provider use for Azure WebApp.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.SerilogLoggerProvider.ConfigureLogger(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader)">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppContext">
+            <summary>
+            Represents the default implementation of <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppContext"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppContext.Default">
+            <summary>
+            Gets the default instance of the WebApp context.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppContext.HomeFolder">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppContext.IsRunningInAzureWebApp">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration">
+            <summary>
+            Represents the configuration of the logger from Azure WebApp.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.Disabled">
+            <summary>
+            The configuration that has all loggers disabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.IsRunningInWebApp">
+            <summary>
+            Gets a value indicating whether we're running in WebApp or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.FileLoggingEnabled">
+            <summary>
+            Gets a value indicating whether the file logger is enabled or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.FileLoggingLevel">
+            <summary>
+            Gets a value indicating the file logger logging level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.FileLoggingFolder">
+            <summary>
+            Gets a value indicating the folder where the file logger stores the logs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.BlobLoggingEnabled">
+            <summary>
+            Gets a value indicating whether the blob logger is enabled or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.BlobLoggingLevel">
+            <summary>
+            Gets a value indicating the blob logger logging level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration.BlobContainerUrl">
+            <summary>
+            Gets the SAS endpoint where blob logs are stored.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder">
+            <summary>
+            Used to create instances of <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetIsRunningInAzureWebApps(System.Boolean)">
+            <summary>
+            Sets a value indicating whether or not we're in an Azure context
+            </summary>
+            <param name="isRunningInAzureWebApps">True if running in Azure, false otherwise</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetFileLoggingEnabled(System.Boolean)">
+            <summary>
+            Sets a value indicating whether or not file logging is enabled
+            </summary>
+            <param name="fileLoggingEnabled">True if file logging is enabled, false otherwise</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetFileLoggingLevel(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Sets logging level for the file logger
+            </summary>
+            <param name="logLevel">File logging level</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetFileLoggingFolder(System.String)">
+            <summary>
+            Sets the folder in which file logs end up
+            </summary>
+            <param name="folder">File logging folder</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetBlobLoggingEnabled(System.Boolean)">
+            <summary>
+            Sets a value indicating whether or not blob logging is enabled
+            </summary>
+            <param name="blobLoggingEnabled">True if file logging is enabled, false otherwise</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetBlobLoggingLevel(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Sets logging level for the blob logger
+            </summary>
+            <param name="logLevel">Blob logging level</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.SetBlobLoggingUrl(System.String)">
+            <summary>
+            Sets blob logging url
+            </summary>
+            <param name="blobUrl">The container in which blobs are placed</param>
+            <returns>The builder instance</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationBuilder.Build">
+            <summary>
+            Builds the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration"/> instance
+            </summary>
+            <returns>The configuration object</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader">
+            <summary>
+            Represents the default implementation of the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader"/>.
+            </summary>
+        </member>
+        <member name="E:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader.OnConfigurationChanged">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader.#ctor(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppContext)">
+            <summary>
+            Creates a new instance of the <see cref="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader"/> class.
+            </summary>
+            <param name="context">The context in which the reader runs</param>
+        </member>
+        <member name="P:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader.Current">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfigurationReader.Dispose">
+            <summary>
+            Disposes the object instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebConfigurationReaderLevelSwitch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebConfigurationReaderLevelSwitch.LogLevelDisabled">
+            <summary>
+            The log level at which the logger is disabled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebConfigurationReaderLevelSwitch.#ctor(Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.IWebAppLogConfigurationReader,System.Func{Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebAppLogConfiguration,Serilog.Events.LogEventLevel})">
+            <summary>
+            
+            </summary>
+            <param name="reader"></param>
+            <param name="convert"></param>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.AzureWebAppDiagnostics.Internal.WebConfigurationReaderLevelSwitch.LogLevelToLogEventLevel(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Converts a <see cref="T:Microsoft.Extensions.Logging.LogLevel"/> object to <see cref="T:Serilog.Events.LogEventLevel"/>.
+            </summary>
+            <param name="logLevel">The log level to convert</param>
+            <returns>A <see cref="T:Serilog.Events.LogEventLevel"/> instance</returns>
+        </member>
+    </members>
+</doc>

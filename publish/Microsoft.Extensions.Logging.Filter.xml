@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Extensions.Logging.Filter</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Extensions.Logging.FilterLoggerFactoryExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> extension methods which provide a common way to filter log messages across all
+            registered <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>s.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.FilterLoggerFactoryExtensions.WithFilter(Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Logging.IFilterLoggerSettings)">
+            <summary>
+            Registers a wrapper logger which provides a common way to filter log messages across all registered
+             <see cref="T:Microsoft.Extensions.Logging.ILoggerProvider"/>s.
+            </summary>
+            <param name="loggerFactory">The logger factory.</param>
+            <param name="settings">The filter settings which get applied to all registered logger providers.</param>
+            <returns>
+            A wrapped <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> which provides common filtering across all registered
+             logger providers.
+            </returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.FilterLoggerSettings">
+            <summary>
+            Filter settings for messages logged by an <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Logging.FilterLoggerSettings.Add(System.String,Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Adds a filter for given logger category name and <see cref="T:Microsoft.Extensions.Logging.LogLevel"/>.
+            </summary>
+            <param name="categoryName">The logger category name.</param>
+            <param name="logLevel">The log level.</param>
+        </member>
+        <member name="T:Microsoft.Extensions.Logging.IFilterLoggerSettings">
+            <summary>
+            Filter settings for messages logged by an <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.
+            </summary>
+        </member>
+    </members>
+</doc>
